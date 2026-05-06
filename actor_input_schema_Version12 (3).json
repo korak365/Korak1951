@@ -1,0 +1,54 @@
+{
+    "title": "Input schema of the Patreon Tier Value Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "Patreon creator pages to scrape (e.g., https://www.patreon.com/<creator>).",
+            "editor": "requestListSources",
+            "prefill": [
+                {
+                    "url": "https://www.patreon.com/creator-name"
+                }
+            ]
+        },
+        "authMethod": {
+            "title": "Auth method",
+            "type": "string",
+            "description": "Use 'credentials' to supply username/password for login (placeholder flow included).",
+            "default": "credentials",
+            "enum": ["none", "cookie", "credentials"]
+        },
+        "username": {
+            "title": "Username / Email",
+            "type": "string",
+            "description": "Patreon account email/username for login (store secrets in env variables on Cloud).",
+            "default": ""
+        },
+        "password": {
+            "title": "Password",
+            "type": "string",
+            "description": "Patreon account password for login (store secrets in env variables on Cloud).",
+            "default": ""
+        },
+        "downloadImages": {
+            "title": "Download images",
+            "type": "boolean",
+            "description": "If true, download tier images to Key-Value store under images/<creatorSlug>/",
+            "default": true
+        },
+        "maxRequestsPerCrawl": {
+            "title": "Max Requests per Crawl",
+            "type": "integer",
+            "default": 100
+        },
+        "scrollIterations": {
+            "title": "Scroll iterations",
+            "type": "integer",
+            "default": 4
+        }
+    },
+    "required": []
+}

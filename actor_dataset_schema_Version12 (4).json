@@ -1,0 +1,20 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": ["creatorSlug", "tierId", "tierName", "price"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "creatorSlug": { "label": "Creator", "format": "text" },
+                    "tierName": { "label": "Tier", "format": "text" },
+                    "price": { "label": "Price", "format": "text" }
+                }
+            }
+        }
+    }
+}
