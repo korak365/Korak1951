@@ -1,0 +1,17 @@
+{
+    "actorSpecification": 1,
+    "name": "twitch-engagement-stats",
+    "title": "Twitch Streamer Engagement Stats",
+    "description": "Real-time viewer-to-chat ratio analysis for Twitch streams (Playwright, no credentials mode).",
+    "version": "0.0",
+    "meta": {
+        "templateId": "ai-generated-actor",
+        "generatedBy": "gpt-4o"
+    },
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "dockerfile": "../Dockerfile"
+}

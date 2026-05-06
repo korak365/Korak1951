@@ -1,0 +1,69 @@
+{
+    "title": "Input schema of the Twitch Streamer Engagement Stats",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "Twitch channel pages to monitor (e.g., https://www.twitch.tv/<channel>).",
+            "editor": "requestListSources",
+            "prefill": [
+                {
+                    "url": "https://www.twitch.tv/ninja"
+                }
+            ]
+        },
+        "samplingIntervalSeconds": {
+            "title": "Sampling interval (seconds)",
+            "type": "integer",
+            "description": "Interval between samples used to compute chat message rate.",
+            "default": 10
+        },
+        "durationSeconds": {
+            "title": "Duration (seconds)",
+            "type": "integer",
+            "description": "How long to sample each channel in seconds. Set 0 for continuous until Actor stopped (use with caution).",
+            "default": 300
+        },
+        "maxRequestsPerCrawl": {
+            "title": "Max Requests per Crawl",
+            "type": "integer",
+            "description": "Maximum number of pages the crawler will open per run.",
+            "default": 50
+        },
+        "chatSelectors": {
+            "title": "Chat selectors (optional)",
+            "type": "array",
+            "description": "CSS selectors to count chat messages. Leave empty to use built-in heuristics.",
+            "default": [
+                "div.chat-line__message",
+                "div[data-a-target='chat-line-message']",
+                "[data-a-target='chat-message-text']"
+            ]
+        },
+        "viewerSelectors": {
+            "title": "Viewer count selectors (optional)",
+            "type": "array",
+            "description": "CSS selectors to extract viewer count. Leave empty to use built-in heuristics.",
+            "default": [
+                "p[data-a-target='animated-channel-viewers-count']",
+                "div[data-a-target='stream-view-count']",
+                "span[data-a-target='stream-count']"
+            ]
+        },
+        "useProxy": {
+            "title": "Use Apify proxy",
+            "type": "boolean",
+            "description": "Enable Apify Proxy via Actor.createProxyConfiguration(). Recommended for scale.",
+            "default": true
+        },
+        "dedupe": {
+            "title": "Deduplicate samples in KV",
+            "type": "boolean",
+            "description": "If true, store summary keys in Key-Value store to avoid duplicate aggregated pushes.",
+            "default": true
+        }
+    },
+    "required": []
+}

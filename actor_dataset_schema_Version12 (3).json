@@ -1,0 +1,20 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": ["channel", "sampledAt", "viewerCount", "messagesDelta", "chatRatePerMinute", "viewerToChatRatio"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "channel": { "label": "Channel", "format": "text" },
+                    "viewerCount": { "label": "Viewers", "format": "number" },
+                    "chatRatePerMinute": { "label": "Chat/min", "format": "number" }
+                }
+            }
+        }
+    }
+}
